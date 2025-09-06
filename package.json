@@ -1,0 +1,73 @@
+{
+  "name": "sso",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "format:write": "prettier --write \"./**/*.{ts,tsx}\" --cache",
+    "format:check": "prettier --check \"./**/*.{ts,tsx}\" --cache",
+    "check-types": "tsc --noEmit --pretty",
+    "clean": "rimraf dist",
+    "preinstall": "husky install",
+    "prepare": "husky install",
+    "deploy": "pnpm run build && vercel --prod",
+    "deploy:preview": "pnpm run build && vercel"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
+    "@tanstack/react-query": "^5.45.0",
+    "@tanstack/react-router": "^1.36.3",
+    "auto-zustand-selectors-hook": "^3.0.1",
+    "axios": "^1.7.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.0",
+    "html2canvas": "^1.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-query-kit": "^3.3.0",
+    "tailwind-merge": "^3.3.1",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+    "@tanstack/react-query-devtools": "^5.45.0",
+    "@tanstack/router-devtools": "^1.15.10",
+    "@tanstack/router-vite-plugin": "^1.15.10",
+    "@total-typescript/ts-reset": "^0.5.1",
+    "@types/node": "^20.11.16",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "6.0.0",
+    "@typescript-eslint/parser": "6.0.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^8.55.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-unused-imports": "3.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "15.2.0",
+    "postcss": "^8.4.33",
+    "prettier": "^3.3.0",
+    "prettier-plugin-tailwindcss": "^0.6.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.1.6",
+    "vite": "^5.0.8",
+    "vite-plugin-svgr": "^4.2.0",
+    "vite-plugin-webfont-dl": "^3.9.4"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,json,md,mdx,css,scss,yaml,yml}": [
+      "prettier --write"
+    ]
+  }
+}
