@@ -1,0 +1,6 @@
+{
+  "routes": {
+    "/*": "/index.html"
+  },
+  "site_name": "Social Card Generator"
+}
