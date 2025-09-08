@@ -205,7 +205,8 @@ app.get('/api/image/:imageId', async (req, res) => {
         );
 
         // If we get here, the object exists
-        imageUrl = `https://${S3_BUCKET_NAME}.s3.${process.env.S3_REGION}.amazonaws.com/${s3Key}`;
+        // Use Supabase storage public URL format
+        imageUrl = `${process.env.VIEW_ENDPOINT}/${S3_BUCKET_NAME}/${s3Key}`;
         break;
       } catch (error) {
         // Object doesn't exist with this extension, try next
@@ -276,9 +277,9 @@ app.get('/share/:imageId', async (req, res) => {
       `);
     }
 
-    // Generate direct S3 URL for better X/Twitter compatibility
+    // Generate direct Supabase storage URL for better X/Twitter compatibility
     const s3Key = `${imageId}.${imageExtension}`;
-    const directImageUrl = `https://${S3_BUCKET_NAME}.s3.${process.env.S3_REGION}.amazonaws.com/${s3Key}`;
+    const directImageUrl = `${process.env.VIEW_ENDPOINT}/${S3_BUCKET_NAME}/${s3Key}`;
     const shareUrl = `${req.protocol}://${req.get('host')}/share/${imageId}`;
 
     // Optimize for Twitter crawler with aggressive caching
