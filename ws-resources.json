@@ -2,5 +2,6 @@
   "routes": {
     "/*": "/index.html"
   },
-  "site_name": "Social Card Generator"
+  "site_name": "Social Card Generator",
+  "object_id": "0xd4681d6886e6361e008324777652815628f02cb9045c5c3ec80bd8f9cb345159"
 }
