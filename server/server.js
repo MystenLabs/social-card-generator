@@ -136,6 +136,21 @@ const twitterClient = new TwitterApi({
 const oauthStates = new Map();
 
 // Routes
+app.get('/', (req, res) => {
+  res.json({
+    status: 'OK',
+    message: 'Social Card Generator API is running',
+    version: '1.0.0',
+    endpoints: {
+      health: '/health',
+      upload: '/api/upload-image',
+      image: '/api/image/:imageId',
+      share: '/share/:imageId',
+      auth: '/auth/twitter',
+    },
+  });
+});
+
 app.get('/health', (req, res) => {
   res.json({ status: 'OK', message: 'Twitter OAuth server is running' });
 });
