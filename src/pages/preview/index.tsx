@@ -62,9 +62,13 @@ const PreviewPage = () => {
       const response = await getShareLink(file);
       const { shareUrl } = response;
 
-      // Open Twitter share intent with the server's share URL
-      const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}`;
-      window.open(twitterShareUrl, '_blank', 'width=600,height=400');
+      // Clean, single-line text that works better for tweets
+      const text = "I'm going to SuiFest  \n\nAre you going to SuiFest? Make your card now 👇\n\n";
+
+      // Open Twitter share intent - Safari-friendly approach
+      const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`;
+
+      window.location.href = twitterShareUrl;
     } catch (error) {
       console.error('Error sharing on X:', error);
       alert('Failed to share on X. Please try again.');
